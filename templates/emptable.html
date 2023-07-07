@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emp table</title>
+</head>
+<body>
+    <center>
+        <form  method="POST">
+            {% csrf_token %}
+            <label for="eno">Empno: </label>
+            <input type="number" name="eno" id="eno">
+            <br><br>
+            <label for="ename">Empname</label>
+            <input type="text" name="ename" id="ename"> <br><br>
+            <label for="deptno">Deptno: </label>
+            <select name="deptno" id="deptno">
+                {% for x in EM %}
+                    <option value="{{x.deptno}}">{{x.deptname}}</option>
+                {% endfor %}
+            </select>
+            <br><br>
+            <input type="submit" value="submit">
+        </form>
+    </center>
+    
+</body>
+</html>
